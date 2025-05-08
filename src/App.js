@@ -40,14 +40,19 @@ function App() {
     }
   };
 
-  const handleDelete = async (id) => {
-    try {
-      await deleteVehicle(id);
-      setVehicles(vehicles.filter(v => v.id !== id));
-    } catch (error) {
-      console.error('Error al eliminar vehículo:', error);
+const handleDelete = async (id) => {
+  try {
+    await deleteVehicle(id);
+    setVehicles(vehicles.filter(v => v.id !== id));
+
+    // Si el vehículo eliminado era el que se estaba editando, limpiar el formulario
+    if (editingVehicle && editingVehicle.id === id) {
+      setEditingVehicle(null);
     }
-  };
+  } catch (error) {
+    console.error('Error al eliminar vehículo:', error);
+  }
+};
 
   const handleEdit = (vehicle) => {
     setEditingVehicle(vehicle);

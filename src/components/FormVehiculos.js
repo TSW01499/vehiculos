@@ -12,16 +12,24 @@ const FormVehiculos = ({ onSubmit, initialVehicle = null, vehicles }) => {
   const [fechaFabricacion, setFechaFabricacion] = useState(initialVehicle?.fechaFabricacion || '');
   const [error, setError] = useState('');
 
-  useEffect(() => {
-    if (initialVehicle) {
-      setNumChasis(initialVehicle.numChasis);
-      setMarca(initialVehicle.marca);
-      setModelo(initialVehicle.modelo);
-      setColor(initialVehicle.color);
-      setPotencia(initialVehicle.potencia);
-      setFechaFabricacion(initialVehicle.fechaFabricacion);
-    }
-  }, [initialVehicle]);
+useEffect(() => {
+  if (initialVehicle) {
+    setNumChasis(initialVehicle.numChasis);
+    setMarca(initialVehicle.marca);
+    setModelo(initialVehicle.modelo);
+    setColor(initialVehicle.color);
+    setPotencia(initialVehicle.potencia);
+    setFechaFabricacion(initialVehicle.fechaFabricacion);
+  } else {
+    // Si no hay vehículo en edición, limpiar el formulario
+    setNumChasis('');
+    setMarca('');
+    setModelo('');
+    setColor('');
+    setPotencia('');
+    setFechaFabricacion('');
+  }
+}, [initialVehicle]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
