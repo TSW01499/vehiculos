@@ -1,6 +1,6 @@
 # Actividad individual DWEC – 2ª evaluación CFGS DAW A Distancia
 La siguiente actividad se basa en una aplicación web de realizar de un concesionario de venta de vehículos. Se trata de crear una aplicación en React que cumpla con los apartados a continuación.
-# GESTIÓN DE VEHÍCULOS
+## GESTIÓN DE VEHÍCULOS
 La aplicación debe ser capaz de gestionar los vehículos del sistema. Se da por hecho que es una aplicación interna que no será publicada al exterior, por lo que no requerirá una autenticación previa. La gestión de vehículos debe cumplir con los siguientes requisitos:
 a) Poder consultar todos los vehículos del concesionario. Se pueden visualizar de forma tabular. Cada vehículo debe contener al menos los siguientes datos:
 a. Id de vehículo. Es un dato interno que no se muestra al usuario, solo se usa en operaciones de servidor y de obtención de datos.
@@ -32,7 +32,7 @@ Por otra parte, debe incluir las siguientes validaciones de los datos introducid
 7. La fecha de fabricación no puede ser posterior al día de hoy.
 8. Las expresiones regulares de validación deben almacenarse en variables de contexto (React Context).
 
-# ESTADÍSTICA DE VEHÍCULOS
+## ESTADÍSTICA DE VEHÍCULOS
 Además de consultar los datos de cada vehículo, se podrán visualizar las siguientes estadísticas en relación con todos los vehículos:
 1. Valores medios de la potencia en CV.
 2. Valor mínimo de la potencia en CV.
