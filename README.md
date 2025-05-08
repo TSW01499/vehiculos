@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# Actividad individual DWEC – 2ª evaluación CFGS DAW A Distancia
+La siguiente actividad se basa en una aplicación web de realizar de un concesionario de venta de vehículos. Se trata de crear una aplicación en React que cumpla con los apartados a continuación.
+# GESTIÓN DE VEHÍCULOS
+La aplicación debe ser capaz de gestionar los vehículos del sistema. Se da por hecho que es una aplicación interna que no será publicada al exterior, por lo que no requerirá una autenticación previa. La gestión de vehículos debe cumplir con los siguientes requisitos:
+a) Poder consultar todos los vehículos del concesionario. Se pueden visualizar de forma tabular. Cada vehículo debe contener al menos los siguientes datos:
+a. Id de vehículo. Es un dato interno que no se muestra al usuario, solo se usa en operaciones de servidor y de obtención de datos.
+b. Número de chasis.
+c. Marca del vehículo.
+d. Modelo del vehículo.
+e. Color
+f. Potencia (en CV)
+g. Fecha de fabricación
+b) Poder dar de alta un vehículo de forma manual.
+c) Poder actualizar un vehículo cualquiera.
+d) Poder eliminar un vehículo.
+Para poder hacer estas operaciones, se proporciona un script en PHP (vehículos.php) que implementa las siguientes operaciones CRUD en el servidor:
+1. getAllVehiculos: Obtiene todos los vehículos del concesionario (GET)
+2. getVehiculoById: Obtiene un vehículo por ID (GET)
+3. createVehiculo: Crea un vehículo dado un JSON con sus datos. No debe contener el ID (POST)
+4. updateVehiculoById: Actualiza un vehículo dado un JSON con sus datos. Debe contener el ID. (PUT)
+5. deleteVehiculoById: Borra un vehículo dado un JSON con su ID. (DELETE)
+Nota: dicho script en PHP debe ser ejecutado con el comando "php -S localhost:8000" para el correcto funcionamiento de la aplicación.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Por otra parte, debe incluir las siguientes validaciones de los datos introducidos en el formulario:
+1. Todos los campos son requeridos.
+2. Al dar de alta un coche, el número de chasis no puede existir previamente en el servidor.
+3. Al actualizar un coche, si se modifica el número de chasis de un vehículo, hay que comprobar que no se introduce uno ya existente en otro registro.
+4. El número de chasis debe contener 8 dígitos. Realizar la validación mediante expresiones regulares.
+5. Tanto marca como color solo pueden contener texto, no números.
+6. La potencia debe ser mayor que 50CV.
+7. La fecha de fabricación no puede ser posterior al día de hoy.
+8. Las expresiones regulares de validación deben almacenarse en variables de contexto (React Context).
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# ESTADÍSTICA DE VEHÍCULOS
+Además de consultar los datos de cada vehículo, se podrán visualizar las siguientes estadísticas en relación con todos los vehículos:
+1. Valores medios de la potencia en CV.
+2. Valor mínimo de la potencia en CV.
+3. Valor máximo de la potencia en CV.
+Se repetirán las mismas estadísticas filtrando por marca. Por ejemplo, potencia media, mínima y máxima de los vehículos Audi almacenados en el servidor.
+Aunque en condiciones normales, estos valores deberían calcularse en el servidor, en este caso se hará exclusivamente en cliente.
