@@ -20,7 +20,7 @@ Para poder hacer estas operaciones, se proporciona un script en PHP (vehículos.
 4. updateVehiculoById: Actualiza un vehículo dado un JSON con sus datos. Debe contener el ID. (PUT)
 5. deleteVehiculoById: Borra un vehículo dado un JSON con su ID. (DELETE)
 
-Nota: dicho script en PHP debe ser ejecutado con el comando "php -S localhost:8000" para el correcto funcionamiento de la aplicación.
+**Nota: dicho script en PHP debe ser ejecutado con el comando "php -S localhost:8000" para el correcto funcionamiento de la aplicación.**
 
 Por otra parte, debe incluir las siguientes validaciones de los datos introducidos en el formulario:
 1. Todos los campos son requeridos.
